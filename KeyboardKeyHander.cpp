@@ -8,7 +8,7 @@ KeyboardKeyHander::~KeyboardKeyHander(void)
 {
 }
 
-void KeyboardKeyHander::setMonitoredKey(SDLKey value)
+void KeyboardKeyHander::setMonitoredKey(SDL_Keycode value)
 {
 	this->keyMonitored = value;
 }

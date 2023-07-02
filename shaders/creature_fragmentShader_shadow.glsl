@@ -42,6 +42,7 @@ void main()
 {
 
   // fetch normal from normal map, expand to the [-1, 1] range, and normalize
+  //vec3 normal = vec4(0.0,0.0,1.0,0.0);
   vec3 normal = 2.0 * texture2D (normalTexture, gl_TexCoord[0].st).rgb - 1.0;
   normal = normalize (normal);
 
@@ -65,13 +66,15 @@ void main()
 	
   if (lamberFactor > 0.0)
   {
-  	 diffuseMaterial =texture2D (diffuseTexture, gl_TexCoord[0].st);
+  	 //diffuseMaterial = pow(texture2D (diffuseTexture, gl_TexCoord[0].st),2.0);
+  	 diffuseMaterial = pow(texture2D (diffuseTexture, gl_TexCoord[0].st),2.0);
+  	 //diffuseMaterial = vec4(0.2);
   	 diffuseLight  = gl_LightSource[0].diffuse;
   
   
-  	 specularMaterial =  texture2D (specularTexture, gl_TexCoord[0].st)  ;
+  	 specularMaterial =  pow(texture2D (specularTexture, gl_TexCoord[0].st),2.0);
   	 specularLight = gl_LightSource[0].specular;
-  	 shininess = pow (max (dot (halfVec, normal), 0.0), 2.0)  ;
+  	 shininess = pow (max (dot (halfVec, normal), 0.0), 0.01)  ;
   	 
   	 if (ShadowCoord.w > 0)
 	{
@@ -109,6 +112,6 @@ void main()
 
    gl_FragColor +=	ambientLight;
    
-    
-  
+  // gl_FragColor =  pow(gl_FragColor, 1.0/2.2);
+   
 }

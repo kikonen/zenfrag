@@ -10,7 +10,7 @@ using namespace std;
 
 
 
-#include <GLUT/glut.h>
+#include <GL/freeglut.h>
 
 #ifdef _WIN32
 //string WaveObject::pathContext = string("D:\\home\\c++ ressources\\");

@@ -1,8 +1,10 @@
-#include "SDL.h"
+#define SDL_MAIN_HANDLED
+
+#include "SDL2/SDL.h"
 #include "includes.h"
 #include "Engine.h"
 #include "main.h"
-#include "GLUT\glut.h"
+#include "GL\freeglut.h"
 #include "glext.h"
 #include "Config.h"
 
@@ -18,47 +20,25 @@ Engine* engine;
 
 
 	/* This is our SDL surface */
-	static SDL_Surface *surface;
+	static SDL_Window *window;
 
 	/* initialize SDL */
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
 	    fprintf( stderr, "Video initialization failed: %s\n",
 		     SDL_GetError( ) );
-	    
-	}
 
-	SDL_WM_SetCaption( "Zen-Frag", "Zen-Frag" );
-
-	const SDL_VideoInfo *videoInfo;
-
-	videoInfo = SDL_GetVideoInfo( );
-	if ( !videoInfo )
-	{
-	    fprintf( stderr, "Video query failed: %s\n",
-		     SDL_GetError( ) );
-	    
 	}
 
 	int videoFlags;
     /* the flags to pass to SDL_SetVideoMode */
-    videoFlags  = SDL_OPENGL;          /* Enable OpenGL in SDL */
+    videoFlags  = SDL_WINDOW_OPENGL;          /* Enable OpenGL in SDL */
     //videoFlags |= SDL_GL_DOUBLEBUFFER; /* Enable double buffering */
-    videoFlags |= SDL_HWPALETTE;       /* Store the palette in hardware */
+    //videoFlags |= SDL_WINDOW_HWPALETTE;       /* Store the palette in hardware */
     //videoFlags |= SDL_RESIZABLE;       /* Enable window resizing */
 
 	if (engine->renderFullScreen)
-		videoFlags |= SDL_FULLSCREEN;
-
-    /* This checks to see if surfaces can be stored in memory */
-    if ( videoInfo->hw_available )
-	videoFlags |= SDL_HWSURFACE;
-    else
-	videoFlags |= SDL_SWSURFACE;
-
-    /* This checks if hardware blits can be done */
-    if ( videoInfo->blit_hw )
-	videoFlags |= SDL_HWACCEL;
+		videoFlags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
     /* Sets up OpenGL double buffering */
    // SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
@@ -78,25 +58,39 @@ Engine* engine;
 	}
 
     /* get a SDL surface */
-	surface = SDL_SetVideoMode( engine->renderWidth, engine->renderHeight, 32,videoFlags );
+	window = SDL_CreateWindow(
+		"Zen-Frag",
+		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
+		engine->renderWidth,
+		engine->renderHeight,
+		videoFlags);
 
-	SDL_EnableKeyRepeat(20,20);
-    /* Verify there is a surface */
-    if ( !surface )
+	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+
+	SDL_RendererInfo videoInfo;
+
+	SDL_GetRendererInfo(renderer, &videoInfo);
+
+	//SDL_EnableKeyRepeat(20,20);
+
+	/* Verify there is a surface */
+    if ( !window)
 	{
 	    fprintf( stderr,  "Video mode set failed: %s\n", SDL_GetError( ) );
 	}
 
-	SDL_ShowCursor(false);  
-	SDL_WM_GrabInput(SDL_GRAB_ON);
+	engine->window = window;
+
+	SDL_SetRelativeMouseMode(SDL_TRUE);
 	printf("OK.\n");
 }
 
 void initGL ()
 {
-	
+
 	printf("Initiating openGL...");
-	//Set fog 
+	//Set fog
 	/*
 	glFogi(GL_FOG_MODE, GL_LINEAR);		// Fog Mode
 	glFogfv (GL_FOG_COLOR,fogColor);			// Set Fog Color
@@ -121,10 +115,12 @@ void initGL ()
 
 
 
-int main(int argc, char* argv[])
+//int main(int argc, char* argv[])
+int main()
 {
 	printf("Starting engine... \n");
 
+	SDL_SetMainReady();
 
 	engine = new Engine();
 	engine->readConfiguration();
@@ -138,6 +134,3 @@ int main(int argc, char* argv[])
 	printf("Ending engine.\n");
 	return 0;
 }
-
-
-

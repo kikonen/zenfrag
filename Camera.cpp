@@ -45,7 +45,7 @@ void Camera::render()
 	glColor4f(0,0,1,0.7f);
 	glDisable(GL_TEXTURE_2D);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	
+
 	// Near
 	glBegin(GL_QUADS);
 		glVertex3f(frustrum->viewingVolume[NBR].x,
@@ -187,9 +187,9 @@ void Camera::print()
 }
 
 
-void Camera::update(Uint8 * tKeys)
+void Camera::update(const Uint8 * tKeys)
 {
-	frustrum->update();	
+	frustrum->update();
 }
 void Camera::updateMouse(int eventX,int eventY)
 {

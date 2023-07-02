@@ -10,7 +10,7 @@
 #include "ParserGroupSelector.h"
 
 #include "Timer.h"
-#include "SDL.h"
+#include "SDL2/SDL.h"
 
 #include "Engine.h"
 #include "Camera.h"
@@ -39,7 +39,7 @@ WaveObject::WaveObject(float scaleFactor, Vertex offSet)
 	useDisplayList = 0;
 
 	bsp = NULL;
-	
+
 }
 WaveObject::~WaveObject(void){}
 
@@ -64,13 +64,13 @@ void tokenize(const string& str,vector<string>& tokens,const string& delimiters 
 void WaveObject::load(char* filename)
 {
 	string completeFilePath = pathContext + string(filename);
-	
+
 	printf("Loading OBJ file:'%s'.\n",completeFilePath.c_str());
 
    ifstream file;
    file.open(completeFilePath.c_str());
 
-   
+
    if (!file)
 	{
 		printf("Could not load OBJ file:'%s'\n",completeFilePath.c_str());
@@ -82,9 +82,9 @@ void WaveObject::load(char* filename)
    //this->name = filename;
 
    string line;
-   
+
    vector<string> tokens;
-   Parser* parser;	
+   Parser* parser;
    while (getline(file, line) )
    {
 	 tokenize(line, tokens);
@@ -122,7 +122,7 @@ void WaveObject::getAllBspGroups(BSP* bsp,vector<Group*>& toRender)
 		getAllBspGroups(bsp->back,toRender);
 }
 
-				
+
 
 void WaveObject::buildSetOfGroupsToRender(BSP* bsp, vector<Group*>& toRender)
 {
@@ -156,18 +156,18 @@ void WaveObject::buildSetOfGroupsToRender(BSP* bsp, vector<Group*>& toRender)
 
 			if (bsp->back != NULL)
 				buildSetOfGroupsToRender(bsp->back,toRender);
-		}	
-
-		
+		}
 
 
-		
+
+
+
 
 }
 
 
 bool myfunction (Group* i,Group* j){
-	return (i->material->textureId <j->material->textureId); 
+	return (i->material->textureId <j->material->textureId);
 }
 
 void WaveObject::render()
@@ -189,7 +189,7 @@ void WaveObject::render()
 		sort(groupsToRender.begin(),groupsToRender.end(),myfunction);
 
 		renderDirectMode(groupsToRender);
-		
+
 		return;
 	}
 
@@ -208,7 +208,7 @@ void WaveObject::render()
 		else
 		{
 			displayListId = glGenLists(1);
-			
+
 			glNewList(displayListId,GL_COMPILE);
 			renderDirectMode(groups);
 			glEndList();
@@ -219,7 +219,7 @@ void WaveObject::render()
 void WaveObject::renderDirectMode(vector<Group*>& groupIn)
 {
 
-	
+
 	Group* group = NULL;
 	Material* currentMaterial = NULL;
 
@@ -243,28 +243,28 @@ void WaveObject::renderDirectMode(vector<Group*>& groupIn)
 				for(unsigned int j=0; j < group->faces.size();j++)// && (SDL_GetTicks() /500) > j; j++)
 				{
 					face = group->faces.at(j);
-					
+
 						for (unsigned int w=0 ; w < 3 ; w ++)
 						{
 					//		printf("Using material textCood u=%f, v=%f\n",face->textCoord[w].u,face->textCoord[w].v);
 							glTexCoord2f(face->textCoord[w].u,face->textCoord[w].v);
-							glNormal3f(face->normals[w].x,face->normals[w].y,face->normals[w].z);	
-							glVertex3f(face->vertices[w].x,face->vertices[w].y,face->vertices[w].z);	
-							
+							glNormal3f(face->normals[w].x,face->normals[w].y,face->normals[w].z);
+							glVertex3f(face->vertices[w].x,face->vertices[w].y,face->vertices[w].z);
+
 						}
 						Engine::engine->polygonRendered++;
-					
+
 				}
 				glEnd();
 			*/
 
-		
+
 		if (!group->packed)
 			group->pack();
 		group->renderViaArrayList();
 		Engine::engine->polygonRendered+=group->faces.size();
-		
-		
+
+
 	}
 
 }
@@ -329,7 +329,7 @@ void WaveObject::refineBSP(BSP* bsp, int depth)
 {
 	if (depth > 3)
 		return;
-	// Define cutting plan 
+	// Define cutting plan
 
 	//printf("bsp box\n");
 	//bsp->boudaryVolume.dump();
@@ -352,7 +352,7 @@ void WaveObject::refineBSP(BSP* bsp, int depth)
 	//printf("near box\n");
 	//nearBox.dump();
 
-	// Create two new BSP and attribute newly created AABB 
+	// Create two new BSP and attribute newly created AABB
 	bsp->front = new BSP();
 	bsp->front->boudaryVolume = farBox;
 
@@ -384,7 +384,7 @@ void WaveObject::dispatch(vector<Group*>& groups,Plan& plan, BSP* front, BSP* ba
 {
 	for (unsigned int i=0; i < groups.size(); i ++)
 		splitGroup(groups.at(i),plan,front->groups,back->groups);
-	
+
 	groups.clear();
 }
 
@@ -440,7 +440,7 @@ void WaveObject::splitFace(Face* face,Plan& plan,Group* front, Group* back)
 	{
 		back->faces.push_back(face);
 		return;
-		
+
 	}
 
 	cutFaceViaPlan(face,front,back,plan);
@@ -474,7 +474,7 @@ void WaveObject::cutFaceViaPlan(Face* faceToCut,Group* front, Group* back, Plan&
 		}
 	}
 
-	if (frontVertex.size() == 3 || backVertex.size() == 3) 
+	if (frontVertex.size() == 3 || backVertex.size() == 3)
 	{
 		printf("Error in face partitionning##################### front=%d, back=%d\n",frontVertex.size(),backVertex.size());
 		for (unsigned int i=0; i< frontVertex.size() ; i++)
@@ -483,7 +483,7 @@ void WaveObject::cutFaceViaPlan(Face* faceToCut,Group* front, Group* back, Plan&
 			printf("Error in face partitionning backVertex d=%f\n",plan.distanceFromPoint(backVertex.at(i)));
 		return;
 	}
-	
+
 	unsigned int frontSize = frontVertex.size();
 	unsigned int backSize = backVertex.size();
 	for(unsigned int i=0 ; i < frontSize; i ++)
@@ -494,7 +494,7 @@ void WaveObject::cutFaceViaPlan(Face* faceToCut,Group* front, Group* back, Plan&
 			if (u >= 0 && u <= 1)
 			{
 				Vertex intersection = (backVertex.at(j) - frontVertex.at(i)  )  *    u + frontVertex.at(i)  ;
-				Vertex intersectionN = frontNormal[i]  * (1-u)  +   backNormal[j] * u ; 
+				Vertex intersectionN = frontNormal[i]  * (1-u)  +   backNormal[j] * u ;
 				//printf("Slicing text coo: frontTextCoo[i]=(%f,%f) and backTextCoo[j]=(%f,%f)\n",frontTextCoo[i].u,frontTextCoo[i].v,backTextCoo[j].u,backTextCoo[j].v);
 
 				TextCoord intersectionT = frontTextCoo[i] * (1-u)  +   backTextCoo[j]* u;
@@ -545,7 +545,7 @@ void WaveObject::cutFaceViaPlan(Face* faceToCut,Group* front, Group* back, Plan&
 		Face* newFace = new Face();
 		for (unsigned int i=0 ; i < 3 ; i++)
 		{
-			
+
 			newFace->vertices[i] = backVertex[i];
 			newFace->normals[i] = backNormal[i];
 			newFace->textCoord[i] = backTextCoo[i];
@@ -553,9 +553,9 @@ void WaveObject::cutFaceViaPlan(Face* faceToCut,Group* front, Group* back, Plan&
 		back->faces.push_back(newFace);
 	}
 
-	
-	
-	
+
+
+
 	if (backVertex.size() == 4)
 	{
 		Face* newFace = new Face();
@@ -567,26 +567,26 @@ void WaveObject::cutFaceViaPlan(Face* faceToCut,Group* front, Group* back, Plan&
 		}
 		back->faces.push_back(newFace);
 	}
-	
+
 }
 
 
 float WaveObject::processIntesection(Vertex& point1, Vertex& point2, Plan& plan)
 {
-	   //  t={d-a x_a - b y_a - c z_a \over a (x_b-x_a)+ b (y_b-y_a) + c(z_b-z_a)}. 
-	
+	   //  t={d-a x_a - b y_a - c z_a \over a (x_b-x_a)+ b (y_b-y_a) + c(z_b-z_a)}.
 
-	float nomimator  =	- plan.d 
+
+	float nomimator  =	- plan.d
 						- plan.normalVector.x * point1.x
 						- plan.normalVector.y * point1.y
 						- plan.normalVector.z * point1.z
 						;
 
 
-	float demonimator = plan.normalVector.x * ( point2.x - point1.x) + 
+	float demonimator = plan.normalVector.x * ( point2.x - point1.x) +
 						plan.normalVector.y * ( point2.y - point1.y) +
 						plan.normalVector.z * ( point2.z - point1.z) ;
-		
+
 	if ( demonimator == 0)
 		return 0;
 

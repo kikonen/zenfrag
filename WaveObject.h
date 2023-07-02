@@ -3,13 +3,13 @@
 #include "3DDefinitions.h"
 #include <vector>
 #include <map>
-#include "GLUT/glut.h"
+#include "GL/freeglut.h"
 #include "BSP.h"
 using namespace std;
 
 class Parser;
 
-class WaveObject 
+class WaveObject
 {
 public:
 	WaveObject(float scaleFactor, Vertex offSet);

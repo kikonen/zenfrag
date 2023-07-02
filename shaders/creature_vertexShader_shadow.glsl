@@ -51,18 +51,16 @@ void main()
 		  vertexPosition = normalize(vertexPosition);
 		
 		  // No need to divide by two, the result is normalized anyway.
-	      // vec3 halfVector = normalize((vertexPosition + lightDir) / 2.0); 
-	      vec3 halfVector = normalize(vertexPosition + lightDir);
-
+		  // vec3 halfVector = normalize((vertexPosition + lightDir) / 2.0); 
+		  vec3 halfVector = normalize(vertexPosition + lightDir) ;
+		  
 		  v.x = dot (halfVector, t);
 		  v.y = dot (halfVector, b);
 		  v.z = dot (halfVector, n);
 		  
 		  // No need to normalize, t,b,n and halfVector are normal vectors.
 		  //normalize (v);
-	      halfVec = v ; 
-	  
-	
+		  halfVec = v ; 
 		  
 		  
 		gl_Position = ftransform();

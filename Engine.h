@@ -1,8 +1,8 @@
 #pragma once
 
-#include "SDL.h"
+#include "SDL2/SDL.h"
 
-#include "GLUT/glut.h"
+#include "GL/freeglut.h"
 #include "glext.h"
 #include "includes.h"
 
@@ -32,7 +32,7 @@ class Engine
 		void mainLoop ();
 		void render();
 		void run();
-		
+
 		static Engine* engine ;
 
 		Camera* firstPerson;
@@ -72,12 +72,14 @@ class Engine
 		vector<md5Object*> creatures;
 		vector<Surface*> surfaces;
 
+		SDL_Window* window;
+
 	private:
 
 		short gameOn ;
 		void update();
 		void renderScene(bool setMatrix, bool useShaders);
-		void readSystemEntries(Uint8 * tKeys);
+		void readSystemEntries(const Uint8 * tKeys);
 
 		//WaveObject* tenso;
 		//WaveObject* sky1;
@@ -96,24 +98,24 @@ class Engine
 		//GLuint shadowMapId;
 		//GLuint fboTextureId;
 		//GLuint fboId;
-		
+
 		// FBO Light scatteting
 		void generateLightScatteringFBO();
 		GLuint lightScattTextureId;
 		GLuint lightScattFBOId;
 
-		
 
-		
+
+
 
 
 		// Weapons
 		md5Object* shotgun;
 
-		void renderRoom();		
+		void renderRoom();
 		void renderEntity(md5Object* entity);
 
-		
+
 
 		md5Object* weapon;
 

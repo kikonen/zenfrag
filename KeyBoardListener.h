@@ -10,9 +10,9 @@ public:
 	KeyBoardListener(void);
 	~KeyBoardListener(void);
 
-	void addListener(SDLKey key, KeyboardKeyHander* listener);
+	void addListener(SDL_Keycode key, KeyboardKeyHander* listener);
 
-	void update(Uint8 * tKeys);
+	void update(const Uint8 * tKeys);
 
 	vector<KeyboardKeyHander*> handlers;
 };

@@ -25,12 +25,12 @@ Light::Light(int renderWith, int renderHeight,Vertex& positionIn, Vertex& lookAt
 	upVector.y=1;
 	upVector.z=0;
 
-	
+
 
 	dList = glGenLists(1);
 	glNewList(dList,GL_COMPILE);
 		glColor4f(1,1,1,1);
-		glutSolidSphere(5,10,10);
+		//glutSolidSphere(5,10,10);
 	glEndList();
 
 	//type =  SPOT_LIGHT;
@@ -39,7 +39,7 @@ Light::Light(int renderWith, int renderHeight,Vertex& positionIn, Vertex& lookAt
 
 Light::~Light(void)
 {
-	
+
 
 }
 
@@ -59,7 +59,7 @@ void Light::render()
 {
 	glColor4fv(diffuse);
 	glCallList(dList);
-	
+
 }
 
 void Light::setupPerspective()
@@ -99,7 +99,7 @@ void Light::generateFBO(GLuint &fboId, GLuint &shadowMapId)
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	
+
 
 	// Try to use a texture depth component
 	glGenTextures(1, &shadowMapId);
@@ -109,7 +109,7 @@ void Light::generateFBO(GLuint &fboId, GLuint &shadowMapId)
 	// Normally filtering on depth texture is done bia GL_NEAREST, but Nvidia has a built-in support for Hardware filtering: use GL_LINEAR
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	
+
 
 
 	// Two next lines are necessary if we wan to use the convenient shadow2DProj function in the shader.
@@ -118,7 +118,7 @@ void Light::generateFBO(GLuint &fboId, GLuint &shadowMapId)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LEQUAL);
 
 	//glTexParameteri(GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_LUMINANCE);
-	glTexParameteri(GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_INTENSITY); 
+	glTexParameteri(GL_TEXTURE_2D, GL_DEPTH_TEXTURE_MODE, GL_INTENSITY);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
 

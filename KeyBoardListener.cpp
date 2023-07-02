@@ -9,13 +9,13 @@ KeyBoardListener::~KeyBoardListener(void)
 {
 }
 
-void KeyBoardListener::addListener(SDLKey key, KeyboardKeyHander* listener)
+void KeyBoardListener::addListener(SDL_Keycode key, KeyboardKeyHander* listener)
 {
 	listener->setMonitoredKey(key);
 	handlers.push_back(listener);
 }
 
-void KeyBoardListener::update(Uint8 * tKeys)
+void KeyBoardListener::update(const Uint8 * tKeys)
 {
 	KeyboardKeyHander* handler = NULL;
 	for( unsigned int i=0 ; i < handlers.size() ; i++)

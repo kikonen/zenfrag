@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Vertex.h"
-#include "GLUT\glut.h"
+#include "GL\freeglut.h"
 #include "glext.h"
 
 class Light
@@ -15,7 +15,7 @@ public:
 
 	void loadRessources();
 	void generateFBO(GLuint &fbo, GLuint &fboTextureId);
-	
+
 
 	int id;
 	Type type;
@@ -36,10 +36,10 @@ public:
 	Vertex position;
 	Vertex lookAt;
 	Vertex upVector;
-	
+
 
 	unsigned int dList;
-	
+
 	GLfloat diffuse[4] ;
 	GLfloat ambient[4] ;
 	GLfloat specular[4] ;

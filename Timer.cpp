@@ -1,5 +1,5 @@
 #include "Timer.h"
-#include "SDL.h"
+#include "SDL2/SDL.h"
 
 int Timer::tick = 0 ;
 
@@ -44,7 +44,7 @@ void Timer::update(void)
 		//	tick = 0;
 		//else
 			tick =  currentTime - lastTime ;
-			
+
 		deltas+= tick;
         lastTime = currentTime;
 

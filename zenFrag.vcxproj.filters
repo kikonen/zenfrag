@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\md5loader">
+      <UniqueIdentifier>{a9be1b19-2069-46ba-8597-2b66cca82123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objLoader">
+      <UniqueIdentifier>{72bd30b7-9f8b-466d-abc6-272fd4e224d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controls">
+      <UniqueIdentifier>{fd74a9d0-95c8-481e-a846-ed6a30f947da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Libraries">
+      <UniqueIdentifier>{d6ba46f0-c3b8-4ee9-8c59-3c5074ea6c5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{0e57ee27-2b3c-4162-ba5b-f179977c415d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\object">
+      <UniqueIdentifier>{097d86e8-b2b5-4943-aa4a-c2e5f2b2c47d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{f10417e0-a21f-4c28-a6a0-5ddabc3a95fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\objLoader">
+      <UniqueIdentifier>{2356bfe4-dc52-48d9-8b29-82d1849f8b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\md5Loader">
+      <UniqueIdentifier>{52434eb4-7c26-4f18-ab15-1596cb339714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Libraries">
+      <UniqueIdentifier>{ff72c51d-708e-4f51-ac9c-e0fd279acf48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shaders">
+      <UniqueIdentifier>{2abc539f-c6fc-42ae-9205-5bf9d2badcf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controls">
+      <UniqueIdentifier>{7e96b7d0-5434-4f5f-8cb6-bede5ce747ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Camera">
+      <UniqueIdentifier>{97af1b36-6256-48e1-bc22-7599759b5744}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\objects">
+      <UniqueIdentifier>{2a69e355-864a-4309-8cd5-c6b83315b58f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Frustrum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glex_impl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lexer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>Source Files\md5loader</Filter>
+    </ClCompile>
+    <ClCompile Include="md5Animation.cpp">
+      <Filter>Source Files\md5loader</Filter>
+    </ClCompile>
+    <ClCompile Include="md5MaterialsLibrary.cpp">
+      <Filter>Source Files\md5loader</Filter>
+    </ClCompile>
+    <ClCompile Include="BSP.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserFace.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserGroupSelector.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMaterial.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMaterialSelector.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMTLD.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMTLKa.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMTLKd.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMTLKs.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMTLmap_Kd.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserMTLNewMaterial.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserNormal.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserTexture.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserVertice.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveObject.cpp">
+      <Filter>Source Files\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="CTRwitchCamera.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardKeyHander.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoardListener.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="Pause.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchLightScatt.cpp">
+      <Filter>Source Files\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderLoader.cpp">
+      <Filter>Source Files\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Source Files\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSCamera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeCamera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Source Files\object</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatureShader.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="EnvShader.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="LightScatteringShader.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowShader.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRDecreaseDecay.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRDecreaseDensity.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRDecreaseExposure.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRDecreaseWeight.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRIncreaseDecay.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRIncreaseDensity.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRIncreaseExposure.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TRIncreaseWeight.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="3DDefinitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTRwitchCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Frustrum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glex_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glextwin32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lexer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BSP.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserFace.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserGroupSelector.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMaterial.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMaterialSelector.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMTLD.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMTLKa.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMTLKd.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMTLKs.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMTLmap_Kd.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserMTLNewMaterial.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserNormal.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserTexture.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserVertice.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveObject.h">
+      <Filter>Header Files\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="float2.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="float3.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md5Animation.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md5definitions.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md5MaterialsLibrary.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md5model.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Header Files\md5Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderDefinitions.h">
+      <Filter>Header Files\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderLoader.h">
+      <Filter>Header Files\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Header Files\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files\Libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatureShader.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvShader.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="LightScatteringShader.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowShader.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRDecreaseDecay.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRDecreaseDensity.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRDecreaseExposure.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRDecreaseWeight.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRIncreaseDecay.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRIncreaseDensity.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRIncreaseExposure.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TRIncreaseWeight.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardKeyHander.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoardListener.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="Pause.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchLightScatt.h">
+      <Filter>Header Files\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSCamera.h">
+      <Filter>Header Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeCamera.h">
+      <Filter>Header Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

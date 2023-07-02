@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SDL.h"
+#include "SDL2/SDL.h"
 
 class KeyboardKeyHander
 {
@@ -8,10 +8,10 @@ public:
 	KeyboardKeyHander(void);
 	~KeyboardKeyHander(void);
 
-	SDLKey keyMonitored;
+	SDL_Keycode keyMonitored;
 	bool keyWasPressed;
 
-	void setMonitoredKey(SDLKey value);
+	void setMonitoredKey(SDL_Keycode value);
 	virtual void onKeyPressed() ;
 	virtual void keyPressed() ;
 	virtual void onKeyReleased() ;

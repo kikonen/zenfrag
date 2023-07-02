@@ -27,10 +27,10 @@ void FreeCamera::update(Uint8 * tKeys)
 		position =  position + (direction * 0.1f * Timer::tick);
 		lookAt = lookAt + (direction * 0.1f * Timer::tick);
 
-		
+
 
 		print();
-	}	
+	}
 
 	if (tKeys[SDLK_DOWN])
 	{
@@ -39,9 +39,9 @@ void FreeCamera::update(Uint8 * tKeys)
 		position =  position - (direction * 0.1f * Timer::tick);
 		lookAt = lookAt - (direction * 0.1f * Timer::tick);
 
-		
+
 		print();
-	}	
+	}
 
 	if (tKeys[SDLK_LEFT])
 	{
@@ -51,7 +51,7 @@ void FreeCamera::update(Uint8 * tKeys)
 		position =  position - (direction * 0.1f * (Timer::tick));
 		lookAt = lookAt - (direction *0.1f *  Timer::tick);
 
-		
+
 		print();
 	}
 
@@ -63,7 +63,7 @@ void FreeCamera::update(Uint8 * tKeys)
 		position =  position - (direction * 0.1f * (Timer::tick));
 		lookAt = lookAt - (direction * 0.1f * Timer::tick);
 
-		
+
 		print();
 	}
 
@@ -102,14 +102,14 @@ void FreeCamera::updateMouse(int eventX,int eventY)
 	direction.rotateY(rotationY);
 
 	lookAt = position + direction;
-	
-	
+
+
 
 
 
 	Camera::updateMouse(eventX,eventY);
 
-	SDL_WarpMouse(Engine::engine->renderWidth/2 ,Engine::engine->renderHeight/2);
+	SDL_WarpMouseGlobal(Engine::engine->renderWidth/2 ,Engine::engine->renderHeight/2);
 
 	//oldMouseX = eventX;
 	//oldMouseY = eventY;

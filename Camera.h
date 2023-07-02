@@ -1,6 +1,6 @@
-#pragma once 
+#pragma once
 
-#include "SDL.h"
+#include "SDL2/SDL.h"
 #include "Vertex.h"
 
 
@@ -14,7 +14,7 @@ class Camera
 
 		Camera(int renderWith, int renderHeight, Vertex& positionIn, Vertex& lookAtIn, float nearZ, float farZ);
 		~Camera();
-		
+
 		Vertex lookAtVector;
 		float rotationX;
 		float rotationY;
@@ -22,7 +22,7 @@ class Camera
 		void setupPerspective();
 
 		void apply();
-		virtual void update(Uint8 * tKeys) ;
+		virtual void update(const Uint8 * tKeys) ;
 		virtual void updateMouse(int deltax,int deltay) ;
 		void render();
 		void print();

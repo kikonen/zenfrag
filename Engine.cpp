@@ -66,7 +66,7 @@ void Engine::readConfiguration()
 void Engine::init()
 {
 
-	
+
     glInfoObject = new glInfo();
 	glInfoObject->getInfo();
 
@@ -92,8 +92,8 @@ void Engine::init()
 
 
 
-	
-	
+
+
 	Vertex camera1Position = Vertex(112,75,-122); //560
 	Vertex camera1LookAt = Vertex(88,71,-85);
 	firstPerson = new FPSCamera(renderWidth,renderHeight,camera1Position,camera1LookAt, 1 ,1000);
@@ -132,16 +132,16 @@ void Engine::init()
 	/* NOT WORKING */ //pinky->load("models\\md5\\monsters\\zombies\\jumpsuitzombie.md5mesh",NULL);
 	//pinky->load("models\\md5\\monsters\\zct\\zct.md5mesh",NULL);
 	//pinky->load("models\\md5\\monsters\\wraith\\wraith.md5mesh",NULL);
-	
+
 	/* NOT WORKING */ //pinky->load("models\\md5\\monsters\\maledict\\maledict.md5mesh",NULL);
 	/* NOT WORKING */ //pinky->load("models\\md5\\monsters\\skeleton\\skeleton.md5mesh",NULL);
 	/* NOT WORKING */ //pinky->load("models\\md5\\monsters\\cherub\\cherub.md5mesh",NULL);
-	
+
 	//pinky->load("models\\md5\\monsters\\archvile\\archvile.md5mesh",NULL);
 	//pinky->load("models\\md5\\monsters\\revenant\\james\\revenant.md5mesh",NULL);
 
 	//pinky->load("models\\md5\\monsters\\guardian\\guardian.md5mesh",NULL);
-	
+
 	/*
 	sabaoth = new md5Object();
 	sabaoth->tangentLoc = creatureShader->tangentLoc;
@@ -149,7 +149,7 @@ void Engine::init()
 	*/
 
 	// pinky->load("models\\md5\\monsters\\sentry\\sentry.md5mesh",NULL);
-	
+
 	//pinky->load("models\\md5\\monsters\\vagary\\vagary.md5mesh",NULL);
 	//pinky->load("models\\md5\\monsters\\zcc\\zcc.md5mesh",NULL);
 
@@ -169,7 +169,7 @@ void Engine::init()
 ///////////////////////////////////////////////////////////////////////////////
 void drawString(const char *str, int x, int y)
 {
-	static const float color[4] = {1, 1, 1, 1};	
+	static const float color[4] = {1, 1, 1, 1};
     glColor4fv(color);          // set text color
     glRasterPos2i(x, y);        // place text position
 
@@ -192,12 +192,12 @@ char* s_extensions = (char*)malloc(40 * sizeof(char));
 
 void Engine::renderEntity(md5Object* entity)
 {
-	glPushMatrix();	
+	glPushMatrix();
 		glTranslated(entity->position.x,entity->position.y,entity->position.z);
 		glRotatef (-90.0f, 1.0, 0.0, 0.0);
 		glRotatef (entity->orientation, 0.0, 0.0, 1.0);
 
-		// Keep 
+		// Keep
 		glMatrixMode(GL_TEXTURE);
 			glActiveTextureARB(GL_TEXTURE0);
 				glPushMatrix();
@@ -210,7 +210,7 @@ void Engine::renderEntity(md5Object* entity)
 						glTranslated(entity->position.x,entity->position.y,entity->position.z);
 						glRotatef (-90.0f, 1.0, 0.0, 0.0);
 						glRotatef (entity->orientation, 0.0, 0.0, 1.0);
-	
+
 
 					entity->render();
 
@@ -235,13 +235,13 @@ void Engine::renderScene(bool onlyOcluders, bool useShaders)
 
 	if (onlyOcluders)
 		return;
-	
+
 	//if (useShaders)
 	//	envShader->enable();
-		
+
 	renderRoom();
-	
-	
+
+
 }
 
 void Engine::renderRoom()
@@ -263,14 +263,14 @@ void Engine::setTextureMatrix(unsigned int textureId)
 	glMatrixMode(GL_TEXTURE);
 	glActiveTextureARB(textureId);
 
-	const GLdouble bias[] = {	0.5, 0.0, 0.0, 0.0, 
+	const GLdouble bias[] = {	0.5, 0.0, 0.0, 0.0,
 		0.0, 0.5, 0.0, 0.0,
 		0.0, 0.0, 0.5, 0.0,
 	0.5, 0.5, 0.5, 1.0};
 
-	glLoadIdentity();	
+	glLoadIdentity();
 	glLoadMatrixd(bias);
-	
+
 	glMultMatrixd (projection);
 	glMultMatrixd (modelView);
 
@@ -282,24 +282,24 @@ void Engine::setTextureMatrix(unsigned int textureId)
 
 void Engine::render()
 {
-	
 
-	
+
+
 	//fflush(stdout);
 	//cout << "salut" << std::endl;
 	//printf("\nStarting rendition-----------------------------\n");
 
 	polygonRendered = 0;
 	textureSwitchs = 0;
-	
-	// Perform prepass for lightScattering effect
-	
-		
 
-	
+	// Perform prepass for lightScattering effect
+
+
+
+
 	//glDisable(GL_DEPTH_TEST);
-	
-	
+
+
 	if (lightScatteringActivated)
 	{
 		glDisable(GL_LIGHTING);
@@ -311,7 +311,7 @@ void Engine::render()
 		glClearColor(0.1f,0.1f,0.1f,1);
 		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-		
+
 
 		glViewport(0,0,renderWidth/Engine::engine->fboLightScatteringRatio,renderHeight/Engine::engine->fboLightScatteringRatio);
 		firstPerson->setupPerspective();
@@ -338,17 +338,17 @@ void Engine::render()
 
 	//return;
 
-	
 
-	
-	//Render shadow map for every light 
+
+
+	//Render shadow map for every light
 		// No shaders
 		for(unsigned int i=0 ; i < lights.size(); i ++)
 		{
 			Light* currentLight = lights[i];
 			glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
 			glCullFace(GL_BACK);
-			
+
 			// Render offscreen to the depth fbo
 			//If light is a pointLight
 			if (currentLight->type == Light::POINT_LIGHT)
@@ -380,7 +380,7 @@ void Engine::render()
 			setTextureMatrix(GL_TEXTURE0);
 			renderScene(true,false);
 
-			
+
 		}
 
 	// End Render shadow map
@@ -424,9 +424,9 @@ void Engine::render()
 		glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, lights[0]->constantAttenuation);
 		glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, lights[0]->linearAttenuation);
 		glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, lights[0]->quadraticAttenuation);
-		
+
 		glDisable(GL_LIGHTING);
-		
+
 		glPushMatrix();
 			glTranslatef(lights[0]->position.x,lights[0]->position.y,lights[0]->position.z);
 			lights[0]->render();
@@ -435,15 +435,15 @@ void Engine::render()
 		glCullFace(GL_FRONT);
 		glEnable(GL_DEPTH_TEST);
 		renderScene(false,true);
-	
+
 		if (lightScatteringActivated)
-			lightScattShader->grabLightCoo() ; 
+			lightScattShader->grabLightCoo() ;
 
 /*
 		glClear(GL_DEPTH_BUFFER_BIT);
 
 		//Render weapon
-		
+
 		creatureShader->enable();  // Optimization possible here, this shader is re-activated
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
@@ -469,12 +469,12 @@ void Engine::render()
 		glPopMatrix();
 */
 
-		
+
 		glUseProgramObjectARB(0);
 	// End Render scene with shadow
 
 		if (lightScatteringActivated)
-			lightScattShader->enable();	
+			lightScattShader->enable();
 
 		glDisable(GL_LIGHTING);
 		glMatrixMode(GL_TEXTURE);
@@ -491,10 +491,10 @@ void Engine::render()
 		{
 
 			//Post pass for lightScattering effect
-			
+
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-			
+
 			glActiveTextureARB(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D,lightScattTextureId);
 			glBegin(GL_QUADS);
@@ -506,7 +506,7 @@ void Engine::render()
 			lightScattShader->disable();
 			glDisable(GL_BLEND);
 		}
-	
+
 
 
 
@@ -514,10 +514,10 @@ void Engine::render()
 	glDisable(GL_LIGHTING);
 	//============ DEBUG==========================
 	/*
-	// Draw shadow map 
+	// Draw shadow map
 	glEnable(GL_TEXTURE_2D);
 	//glDisable(GL_BLEND);
-	
+
 	glDisable(GL_DEPTH_TEST);
 	//glEnable(GL_BLEND);
 	//
@@ -536,55 +536,55 @@ void Engine::render()
 
 	//glDisable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
-		sprintf(fps,"fps: %.0f",Timer::fps );    
-		sprintf(polyCount,"Polygones rendered: %d",polygonRendered );    
-		//sprintf(s_textSwitchs,"textures switches: %d",textureSwitchs );      
+		sprintf(fps,"fps: %.0f",Timer::fps );
+		sprintf(polyCount,"Polygones rendered: %d",polygonRendered );
+		//sprintf(s_textSwitchs,"textures switches: %d",textureSwitchs );
 		//drawString(fps,renderWidth/2-250,-renderHeight/2+60);
 		//drawString(polyCount,renderWidth/2-250,-renderHeight/2+40);
 		//drawString(s_textSwitchs,renderWidth/2-250,-renderHeight/2+20);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
-	
+
 }
 
 
 void Engine::update()
 {
 	Timer::update();
-	
+
 	SDL_PumpEvents();
 
 	SDL_Event event;
-	// Check for events 
+	// Check for events
 
-	
+
 
 	while ( SDL_PollEvent (&event) ) {
 		switch (event.type) {
 			case SDL_QUIT:	gameOn = 0;	break;
-			case SDL_MOUSEMOTION: 
+			case SDL_MOUSEMOTION:
 								//if (event.button.button == SDL_BUTTON_LEFT)
 								//{
 									firstPerson->updateMouse(event.button.x,event.button.y);
-									
+
 								//}
-								
-							
+
+
 								break;
 			default:		    break;
 		}
 	}
 
-	Uint8 * tKeys = SDL_GetKeyState(NULL);
-	readSystemEntries(tKeys);	
+	const Uint8 * tKeys = SDL_GetKeyboardState(nullptr);
+	readSystemEntries(tKeys);
 
 	keyboard->update(tKeys);
 
 	// Update camera according to keys
 	firstPerson->update(tKeys);
 
-	firstPerson->position = Vertex(112,75,-122); 
+	firstPerson->position = Vertex(112,75,-122);
 	firstPerson->lookAt = Vertex(88,71,-85);
 
 
@@ -600,7 +600,7 @@ void Engine::update()
 		//weapon->update();
 	}
 
-	
+
  }
 
 
@@ -610,20 +610,20 @@ void Engine::update()
 void Engine::run ()
 {
 	init();
-    while (gameOn ) 
+    while (gameOn )
 	{
 		update();
 		render ();
-		
-        SDL_GL_SwapBuffers ();
+
+        SDL_GL_SwapWindow(window);
 	}
 }
 
-void Engine::readSystemEntries(Uint8 * tKeys)
+void Engine::readSystemEntries(const Uint8 * tKeys)
 {
-	if (tKeys[SDLK_ESCAPE] || tKeys[SDLK_q]) 
+	if (tKeys[SDLK_ESCAPE] || tKeys[SDLK_q])
 			gameOn = false;
-	
+
 
 }
 
@@ -668,10 +668,10 @@ void Engine::generateLightScatteringFBO()
 	}
 	else
 		fboUsed = true;
-	
+
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 
 
 
-	
+
 }

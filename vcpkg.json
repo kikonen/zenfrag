@@ -1,0 +1,24 @@
+{  "name": "zenfrag",
+   "version": "1.0.0",
+   "dependencies": [
+     {
+       "name": "freeglut",
+       "platform": "windows & x64",
+       "version>=": "3.4.0"
+     },
+     {
+       "name": "sdl2",
+       "platform": "windows & x64",
+       "version>=": "2.26.5",
+       "features": [
+	 "base"
+       ]
+     },
+     {
+       "name": "sdl2-image",
+       "platform": "windows & x64",
+       "version>=": "2.6.3"
+     }
+   ],
+   "builtin-baseline": "288e8bebf4ca67c1f8ebd49366b03650cfd9eb7d"
+}

@@ -29,15 +29,15 @@ void FPSCamera::update(Uint8 * tKeys)
 			direction.rotateX(rotationX);
 			direction.rotateY(rotationY);
 			direction.normalize();
-			
+
 			position =  position + direction * delta ;
 			position.y = y;
 			lookAt = position + direction;
 
-			
 
-			
-	}	
+
+
+	}
 
 
 	if (tKeys[SDLK_LEFT] || tKeys[SDLK_RIGHT])
@@ -56,12 +56,12 @@ void FPSCamera::update(Uint8 * tKeys)
 		direction.normalize();
 		Vertex savedDirection = direction;
 		direction.rotateY(90);
-		
+
 		position =  position + direction * delta;
 		position.y = y;
 		lookAt = position + savedDirection;
 
-		
+
 
 	}
 
@@ -70,7 +70,7 @@ void FPSCamera::update(Uint8 * tKeys)
 }
 void FPSCamera::updateMouse(int eventX,int eventY)
 {
-	
+
 
 	int deltax = Engine::engine->renderWidth/2 - eventX;
 	int deltay = Engine::engine->renderHeight/2 - eventY;
@@ -91,10 +91,10 @@ void FPSCamera::updateMouse(int eventX,int eventY)
 	direction.rotateY(rotationY);
 
 	lookAt = position + direction;
-	
+
 	Camera::updateMouse(eventX,eventY);
 
-	SDL_WarpMouse(Engine::engine->renderWidth/2 ,Engine::engine->renderHeight/2);
+	SDL_WarpMouseGlobal(Engine::engine->renderWidth/2 ,Engine::engine->renderHeight/2);
 
 }
 
