@@ -1,0 +1,94 @@
+// This file support C-style comment (//), but not C++ style (/* */)
+// Note: On windows platforms use / instead of \ for path such as shader folder or model folder, 
+
+camera 0
+// Supported type are: FPSCamera and FreeCamera
+type FPSCamera
+
+//Light declaration
+light 0
+// Supported type are: lightSpot,lightPoint
+type lightSpot
+ambient 0.0 0.0 0.0 1.0
+diffuse 0.39 0.39 0.5 1.0
+specular 0.2 0.2 0.2 1.0
+constantAttenuation 0.1
+linearAttenuation 0.0000008
+quadraticAttenuation 0.0000008
+lightPosition 20 200 -100
+lightLookAt 30 0 0
+
+// This list the materials libraries to load. 
+material materials/monsters.mtr
+material materials/characters.mtr
+material materials/weapons.mtr
+material materials/recyc_floor.mtr
+material materials/recyc_wall.mtr
+material materials/base_door.mtr
+material materials/base_floor.mtr
+
+// Creature declaration
+//creature -nodraw 1 	-model	models/md5/monsters/hellknight/baron.md5mesh -anim	models/md5/monsters/hellknight/roar1.md5anim 
+//creature -nodraw 1 	-model	models/md5/monsters/hellknight/baron.md5mesh -anim	models/md5/monsters/hellknight/stand.md5anim 
+//creature -nodraw 1 	-model	models/md5/monsters/hellknight/baron.md5mesh -anim	models/md5/monsters/hellknight/turret_attack.md5anim 
+//creature -nodraw 1 	-model	models/md5/monsters/hellknight/baron.md5mesh -anim	models/md5/monsters/hellknight/walk7.md5anim 
+//creature -nodraw 2 	-model	models/md5/monsters/hellknight/baron.md5mesh -anim	models/md5/monsters/hellknight/idle2.md5anim 
+//Cposition 0.0 0.0 100.0
+//Crotation 0.0
+
+creature -nodraw 2 	-model	models/md5/monsters/hellknight/hellknight.md5mesh -anim	models/md5/monsters/hellknight/idle2.md5anim 
+Cposition 30.0 0.0 0.0
+Crotation 45.0
+
+//creature  	-model	models/md5/monsters/pinky/pinky.md5mesh -anim models/md5/monsters/pinky/idle1.md5anim //-nodraw 1
+//Cposition 0.0 0.0 -75.0
+//Crotation -45.0
+
+//Fat man
+//creature -model models/md5/monsters/zfat/zfat.md5mesh -anim models/md5/monsters/zfat/idle1.md5anim
+//Cposition -100.0 0.0 -75.0
+//Crotation -45.0
+
+
+//creature -model models/md5/monsters/zombies/jumpsuitzombie.md5mesh
+//Cposition -100.0 0.0 -75.0
+//Crotation 0.0
+
+//creature -model models/md5/monsters/imp/imp.md5mesh -anim models/md5/monsters/imp/idle1.md5anim
+//Cposition -150.0 0.0 -100.0
+//Crotation 0.0
+
+// Map declaration
+// North South East West	(Red rum)
+/wall -min -300 0 -300 -max 300 300 -300  -densityX 5 -densityY 1 -normal  0 0 1 -material textures/recyc_wall/maldoor_org02_d
+//wall -min -300 0 300 -max 300 300 300  -densityX 5 -densityY 1 -normal  0 0 -1 -material textures/recyc_wall/maldoor_org02_d
+//wall -min  300 0 -300 -max 300 300  300  -densityX 10 -densityY 1 -normal -1 0 0 -material textures/recyc_wall/maldoor_org02_d
+//wall -min  -300 0 -300 -max -300 300  300  -densityX 10 -densityY 1 -normal  1 0 0 -material textures/recyc_floor/maldoor_org02_d
+
+//Grey rum
+//wall -min -300 0 -300 -max 300 300 -300  -densityX 10 -densityY 1 -normal  0 0 1 -material textures/recyc_wall/girders02d128_fin
+//wall -min -300 0 300 -max 300 300 300  -densityX 10 -densityY 1 -normal  0 0 -1 -material textures/recyc_wall/girders02d128_fin
+//wall -min  300 0 -300 -max 300 300  300  -densityX 10 -densityY 1 -normal -1 0 0 -material textures/recyc_wall/girders02d128_fin
+//wall -min  -300 0 -300 -max -300 300  300  -densityX 10 -densityY 1 -normal  1 0 0 -material textures/recyc_floor/girders02d128_fin
+//floor -min -300 0 -300 -max 300 0  300  -densityX 3 -densityY 3 -normal  0 1 0 -material textures/base_floor/bluetex1a_ed
+//ceiling -min -300 300 -300 -max 300 300  300  -densityX 7 -densityY 7 -normal  0 -1 0 -material textures/base_floor/a_ghoceiling1_05
+
+
+//wall -min -300 0 -300 -max 300 300 -300  -densityX 5 -densityY 1 -normal  0 0 1 -material textures/recyc_wall/asupport07_fin
+
+// South
+
+//East
+//wall -min  300 0 -300 -max 300 300  300  -densityX 10 -densityY 1 -normal -1 0 0 -material textures/recyc_wall/girders02d128_fin
+
+//West
+//wall -min  -300 0 -300 -max -300 300  300  -densityX 10 -densityY 1 -normal  1 0 0 -material textures/recyc_floor/recycfloor1_1_fin
+
+
+//Floor Ceiling
+
+
+
+
+//ceiling -min -300 300 -300 -max 300 300  300  -densityX 10 -densityY 10 -normal  0 -1 0 -material textures/recyc_floor/recycfloor1_1_fin
+//floor -min -300 0 -300 -max 300 0  300  -densityX 10 -densityY 10 -normal  0 1 0 -material textures/recyc_floor/recycfloor1_1_fin

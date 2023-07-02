@@ -1,0 +1,23 @@
+// This file support C-style comment (//), but not C++ style (/* */)
+// Note: On windows platforms use / instead of \ for path such as shader folder or model folder
+
+shaderFolder				./shaders/
+	
+//modelFolder					/Users/fabiensanglard/doom3/
+modelFolder					./
+
+
+Note: renderHeight is automatically calculated according to your screen ration 4:3 or 16:9
+renderWidth				640
+renderHeight			480
+
+//renderWidth					1290 
+//renderHeight				 720
+
+
+
+fboLightScatteringRatio		   2
+fboShadowBuffersRatio		 0.25
+lightScatteringActivated	   0
+renderFullScreen		  	   0
+antiAliasing 				   1		// Supported values are 1 (Normal rendering), 2, 4 , 8 ,16, depending on hardware.
