@@ -18,6 +18,27 @@
        "name": "sdl2-image",
        "platform": "windows & x64",
        "version>=": "2.6.3"
+     },
+     {
+       "name": "glad",
+       "platform": "windows & x64",
+       "version>=": "0.1.36",
+       "features": [
+	 "extensions",
+	 "gl-api-30",
+	 "gl-api-31",
+	 "gl-api-32",
+	 "gl-api-33",
+	 "gl-api-40",
+	 "gl-api-41",
+	 "gl-api-42",
+	 "gl-api-43",
+	 "gl-api-44",
+	 "gl-api-45",
+	 "gl-api-46",
+	 "gl-api-latest",
+	 "loader"
+       ]
      }
    ],
    "builtin-baseline": "288e8bebf4ca67c1f8ebd49366b03650cfd9eb7d"

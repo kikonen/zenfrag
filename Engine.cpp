@@ -107,7 +107,7 @@ void Engine::init()
 	keyboard->addListener(SDLK_f,new CTRDecreaseWeight(this->lightScattShader));
 	keyboard->addListener(SDLK_t,new CTRIncreaseDensity(this->lightScattShader));
 	keyboard->addListener(SDLK_g,new CTRDecreaseDensity(this->lightScattShader));
-	keyboard->addListener(SDLK_F1,new SwitchLightScatt());
+	//keyboard->addListener(SDLK_F1,new SwitchLightScatt());
 	keyboard->addListener(SDLK_SPACE,new Pause());
 
 
@@ -576,13 +576,19 @@ void Engine::update()
 		}
 	}
 
-	const Uint8 * tKeys = SDL_GetKeyboardState(nullptr);
-	readSystemEntries(tKeys);
+	{
+		int keyCount;
+		const Uint8* tKeys = SDL_GetKeyboardState(&keyCount);
 
-	keyboard->update(tKeys);
+		if (keyCount > 0) {
+			readSystemEntries(tKeys);
 
-	// Update camera according to keys
-	firstPerson->update(tKeys);
+			keyboard->update(tKeys);
+
+			// Update camera according to keys
+			firstPerson->update(tKeys);
+		}
+	}
 
 	firstPerson->position = Vertex(112,75,-122);
 	firstPerson->lookAt = Vertex(88,71,-85);

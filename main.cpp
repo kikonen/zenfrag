@@ -21,6 +21,7 @@ Engine* engine;
 
 	/* This is our SDL surface */
 	static SDL_Window *window;
+	static SDL_Renderer* renderer;
 
 	/* initialize SDL */
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
@@ -41,7 +42,7 @@ Engine* engine;
 		videoFlags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
     /* Sets up OpenGL double buffering */
-   // SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
+	SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
 
 	if (Config::antiAliasingMSAA != 1)
 	{
@@ -57,6 +58,8 @@ Engine* engine;
 		SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 1);
 	}
 
+	SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
+
     /* get a SDL surface */
 	window = SDL_CreateWindow(
 		"Zen-Frag",
@@ -66,7 +69,7 @@ Engine* engine;
 		engine->renderHeight,
 		videoFlags);
 
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	SDL_RendererInfo videoInfo;
 
@@ -115,8 +118,8 @@ void initGL ()
 
 
 
-//int main(int argc, char* argv[])
-int main()
+int main(int argc, char* argv[])
+//int main()
 {
 	printf("Starting engine... \n");
 
